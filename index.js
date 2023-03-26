@@ -1,9 +1,14 @@
+const path = require('path');
 const express = require("express");
 const WebSocket = require("ws");
 const http = require("http");
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
+// sendFile will go here
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 const port = process.env.PORT || 3030;
 
